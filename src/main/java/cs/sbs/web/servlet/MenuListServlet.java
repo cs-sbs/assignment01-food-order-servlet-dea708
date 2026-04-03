@@ -21,7 +21,7 @@ public class MenuListServlet extends HttpServlet {
         StringBuilder result = new StringBuilder("Menu List:\n");
         int count = 1;
         for (cs.sbs.web.model.MenuItem item : menuItems) {
-            if (nameParam == null || item.getName().toLowerCase().contains(nameParam.toLowerCase())) {
+            if (nameParam == null || nameParam.isEmpty() || item.getName().toLowerCase().contains(nameParam.toLowerCase())) {
                 result.append(count++).append(". ").append(item.getName()).append(" - $").append(item.getPrice()).append("\n");
             }
         }
